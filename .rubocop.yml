@@ -1,0 +1,13 @@
+inherit_gem:
+  rubocop-infinum: rubocop.yml
+
+require: rubocop-infinum
+
+AllCops:
+  TargetRubyVersion: 2.7
+
+RSpec/MultipleExpectations:
+  Max: 5
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
