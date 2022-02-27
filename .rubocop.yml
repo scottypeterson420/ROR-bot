@@ -4,10 +4,13 @@ inherit_gem:
 require: rubocop-infinum
 
 AllCops:
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1.0
 
 RSpec/MultipleExpectations:
   Max: 5
+
+RSpec/ExampleLength:
+  Max: 15
 
 Style/FrozenStringLiteralComment:
   Enabled: false

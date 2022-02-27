@@ -1,20 +1,19 @@
-# frozen_string_literal: true
-
 require_relative 'lib/env_sync/version'
 
-Gem::Specification.new do |spec|
+Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.name = 'env_sync'
   spec.version = EnvSync::VERSION
   spec.authors = ['Rails Team']
   spec.email = ['team.rails@infinum.com']
 
-  spec.summary = 'Write a short summary, because RubyGems requires one.'
-  spec.description = 'Write a longer description or delete this line.'
+  spec.summary = 'Tool syncing the database with another environment.'
+  spec.description = 'Provides a rake task for importing a database dump into a database on a particular environment,
+                      as well as for syncing AWS S3 buckets if necessary.'
   spec.homepage = 'https://github.com/infinum/env_sync'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 2.7.0'
+  spec.required_ruby_version = '>= 3.1.0'
 
-  spec.metadata['allowed_push_host'] = "TODO: Set to your gem server 'https://example.com'"
+  # TODO: spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
@@ -32,7 +31,11 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   # Uncomment to register a new dependency of your gem
+  spec.add_dependency 'aws-sdk-s3'
+
+  spec.add_development_dependency 'activerecord'
   spec.add_development_dependency 'pry'
+  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop-infinum'
 
