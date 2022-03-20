@@ -1,11 +1,12 @@
 RSpec.describe EnvSync::Steps::DeleteRemoteDbDump do
-  subject(:step) { described_class.new(settings) }
+  subject(:step) { described_class.new(step_settings) }
 
   let(:settings) { EnvSync::Settings.new }
+  let(:loaded_settings) { settings.load_settings_file('spec/support/settings_with_all_steps.yml') }
+  let(:step_settings) { loaded_settings.dig(:steps, :delete_remote_db_dump) }
 
   before do
     allow(File).to receive(:delete)
-    settings.load_settings_file('spec/support/settings_with_all_steps.yml')
   end
 
   context 'when the file is valid' do

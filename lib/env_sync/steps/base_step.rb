@@ -4,8 +4,8 @@ module EnvSync
       attr_reader :message
       attr_reader :success
 
-      def initialize(settings)
-        @settings = settings
+      def initialize(step_settings)
+        @step_settings = step_settings
         @message = nil
         @success = false
       end
@@ -17,14 +17,10 @@ module EnvSync
 
       private
 
-      attr_reader :settings
+      attr_reader :step_settings
 
       def step_name
         self.class.name.demodulize.underscore
-      end
-
-      def step_settings
-        settings.steps[step_name.to_sym]
       end
     end
   end

@@ -1,12 +1,11 @@
 RSpec.describe EnvSync::Steps::CreateLocalDbBackup do
-  subject(:step) { described_class.new(settings) }
+  subject(:step) { described_class.new(step_settings) }
 
   let(:settings) { EnvSync::Settings.new }
+  let(:loaded_settings) { settings.load_settings_file('spec/support/settings_with_all_steps.yml') }
+  let(:step_settings) { loaded_settings.dig(:steps, :execute_custom_command) }
 
-  before do
-    settings.load_settings_file('spec/support/settings_with_all_steps.yml')
-    db_conn_config_stub
-  end
+  before { db_conn_config_stub }
 
   it 'executes the command' do
     command = successful_command_stub

@@ -1,14 +1,12 @@
 RSpec.describe EnvSync::Steps::ExecuteCustomCommand do
-  subject(:step) { described_class.new(settings) }
+  subject(:step) { described_class.new(step_settings) }
 
   let(:settings) { EnvSync::Settings.new }
-
-  before do
-    settings.load_settings_file('spec/support/settings_with_all_steps.yml')
-  end
+  let(:loaded_settings) { settings.load_settings_file('spec/support/settings_with_all_steps.yml') }
+  let(:step_settings) { loaded_settings.dig(:steps, :execute_custom_command) }
 
   it 'does not execute the command if the step should not be run' do
-    settings.steps.delete(:execute_custom_command)
+    loaded_settings[:steps].delete(:execute_custom_command)
     command = successful_command_stub
 
     step.run

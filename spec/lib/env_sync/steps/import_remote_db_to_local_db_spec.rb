@@ -1,11 +1,9 @@
 RSpec.describe EnvSync::Steps::ImportRemoteDbToLocalDb do
-  subject(:step) { described_class.new(settings) }
+  subject(:step) { described_class.new(step_settings) }
 
   let(:settings) { EnvSync::Settings.new }
-
-  before do
-    settings.load_settings_file('spec/support/settings_with_all_steps.yml')
-  end
+  let(:loaded_settings) { settings.load_settings_file('spec/support/settings_with_all_steps.yml') }
+  let(:step_settings) { loaded_settings.dig(:steps, :import_remote_db_to_local_db) }
 
   context 'when the source file is valid' do
     before do
