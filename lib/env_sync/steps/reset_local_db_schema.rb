@@ -5,6 +5,7 @@ module EnvSync
       def run
         Rake::Task['db:schema:load'].invoke
         @message = 'Reset local DB schema.'
+        @success = true
       end
     end
   end

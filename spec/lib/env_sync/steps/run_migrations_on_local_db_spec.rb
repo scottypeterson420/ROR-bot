@@ -22,4 +22,12 @@ RSpec.describe EnvSync::Steps::RunMigrationsOnLocalDb do
 
     expect(step.message).to eq('Ran migrations on local DB.')
   end
+
+  it 'sets the success variable' do
+    _task = migrate_task_stub
+
+    step.run
+
+    expect(step.success).to be true
+  end
 end

@@ -22,4 +22,12 @@ RSpec.describe EnvSync::Steps::ResetLocalDbSchema do
 
     expect(step.message).to eq('Reset local DB schema.')
   end
+
+  it 'sets the success variable' do
+    _task = schema_load_task_stub
+
+    step.run
+
+    expect(step.success).to be true
+  end
 end

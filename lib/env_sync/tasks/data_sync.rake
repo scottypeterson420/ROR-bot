@@ -12,6 +12,8 @@ task data_sync: :environment do
     step_class = EnvSync::StepFactory.new(step_name).build
     step_settings = EnvSync.settings.steps[step_name.to_sym]
     step = step_class.new(step_settings)
+
+    puts "Started step: #{step_name}"
     step.run
 
     abort step.message unless step.success
