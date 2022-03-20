@@ -11,6 +11,14 @@ module EnvSync
 
       private
 
+      def source_file_valid?
+        source_file_path && File.exist?(source_file_path)
+      end
+
+      def source_file_path
+        step_settings[:remote_db_dump_file_path]
+      end
+
       def command
         "psql -U #{db_conn_config[:username]} -h #{db_conn_config[:host]} -p #{db_conn_config[:port]} " \
           "#{db_conn_config[:database]} < #{source_file_path}"
@@ -18,14 +26,6 @@ module EnvSync
 
       def db_conn_config
         ActiveRecord::Base.connection_db_config.configuration_hash
-      end
-
-      def source_file_path
-        step_settings[:remote_db_dump_file_path]
-      end
-
-      def source_file_valid?
-        source_file_path && File.exist?(source_file_path)
       end
     end
   end

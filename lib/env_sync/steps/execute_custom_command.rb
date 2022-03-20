@@ -3,10 +3,10 @@ module EnvSync
     class ExecuteCustomCommand < BaseStep
       # @return [String]
       def run
-        return unless custom_command
+        return @message = 'Custom command missing' unless custom_command
 
         @success = EnvSync::Command.new(custom_command).execute
-        @message = success ? 'Custom command executed.' : 'Custom command failed.'
+        @message = @success ? 'Custom command executed.' : 'Custom command failed.'
       end
 
       private
