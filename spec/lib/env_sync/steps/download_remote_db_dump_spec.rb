@@ -8,7 +8,7 @@ RSpec.describe EnvSync::Steps::DownloadRemoteDbDump do
   end
 
   context 'when the S3 credentials are missing' do
-    before { settings.loaded_settings[:credentials].delete(:s3) }
+    before { settings.steps[:download_remote_db_dump].delete(:s3_credentials) }
 
     it 'does not execute the command' do
       command = successful_command_stub

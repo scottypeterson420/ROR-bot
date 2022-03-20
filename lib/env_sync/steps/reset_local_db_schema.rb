@@ -3,8 +3,7 @@ module EnvSync
     class ResetLocalDbSchema < BaseStep
       # @return [String]
       def run
-        return unless settings.run_step?(step_name.to_sym)
-
+        Rake::Task['db:purge'].invoke
         Rake::Task['db:schema:load'].invoke
         @message = 'Reset local DB schema.'
       end

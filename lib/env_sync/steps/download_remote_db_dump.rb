@@ -11,6 +11,10 @@ module EnvSync
 
       private
 
+      def s3_credentials
+        step_settings[:s3_credentials]
+      end
+
       def source_object
         s3_resource.bucket(s3_credentials[:bucket]).object(source_file_path)
       end
@@ -25,10 +29,6 @@ module EnvSync
 
       def aws_credentials
         Aws::Credentials.new(s3_credentials[:access_key_id], s3_credentials[:access_key])
-      end
-
-      def s3_credentials
-        settings.s3_credentials
       end
 
       def successful_download_message

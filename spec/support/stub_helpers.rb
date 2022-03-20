@@ -39,6 +39,7 @@ module Support
 
     def schema_load_task_stub
       task = instance_double('Rake::Task')
+      allow(Rake::Task).to receive(:[]).with('db:purge').and_return(task)
       allow(Rake::Task).to receive(:[]).with('db:schema:load').and_return(task)
       allow(task).to receive(:invoke)
       task

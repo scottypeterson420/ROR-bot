@@ -4,6 +4,7 @@ require 'erb'
 require 'logger'
 require 'open3'
 require 'rake'
+require 'rails'
 require 'yaml'
 
 require 'env_sync/version'

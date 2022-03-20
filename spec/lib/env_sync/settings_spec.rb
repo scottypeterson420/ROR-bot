@@ -6,7 +6,7 @@ RSpec.describe EnvSync::Settings do
       settings.load_settings_file('spec/support/settings_with_all_steps.yml')
 
       expect(settings.loaded_settings).to be_a(Hash)
-      expect(settings.loaded_settings.keys).to match_array([:credentials, :steps])
+      expect(settings.loaded_settings.keys).to match_array([:steps])
     end
   end
 
@@ -40,22 +40,6 @@ RSpec.describe EnvSync::Settings do
       settings.load_settings_file('spec/support/settings_without_all_steps.yml')
 
       expect(settings.run_step?(:delete_remote_db_dump)).to be false
-    end
-  end
-
-  describe '#s3_credentials' do
-    it 'returns S3 credentials' do
-      s3_credential_keys = [
-        :access_key_id,
-        :access_key,
-        :region,
-        :bucket
-      ]
-
-      settings.load_settings_file('spec/support/settings_with_all_steps.yml')
-
-      expect(settings.s3_credentials).to be_a(Hash)
-      expect(settings.s3_credentials.keys).to match_array(s3_credential_keys)
     end
   end
 

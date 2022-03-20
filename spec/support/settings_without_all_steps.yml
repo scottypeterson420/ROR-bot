@@ -1,11 +1,10 @@
-credentials:
-  s3:
-    access_key_id: 'access_key_id'
-    access_key: 'access_key'
-    region: 'region'
-    bucket: 'bucket_name'
 steps:
   download_remote_db_dump:
+    s3_credentials:
+      access_key_id: 'access_key_id'
+      access_key: 'access_key'
+      region: 'region'
+      bucket: 'bucket_name'
     source_file_path: 'attachments/staging.sql'
     destination_file_path: './tmp/downloaded_db_dump.sql'
   create_local_db_backup:

@@ -23,11 +23,6 @@ module EnvSync
       steps.key?(step_key)
     end
 
-    # @return [Hash]
-    def s3_credentials
-      loaded_settings.dig(:credentials, :s3)
-    end
-
     # @return [String]
     def remote_db_dump_file_path
       remote_db_dump_file_path = steps.dig(:import_remote_db_to_local_db, :remote_db_dump_file_path)
