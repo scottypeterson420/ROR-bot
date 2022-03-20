@@ -1,31 +1,33 @@
 module EnvSync
-  class BaseStep
-    attr_reader :message
-    attr_reader :success
+  module Steps
+    class BaseStep
+      attr_reader :message
+      attr_reader :success
 
-    def initialize(settings)
-      @settings = settings
-      @message = nil
-      @success = false
-    end
+      def initialize(settings)
+        @settings = settings
+        @message = nil
+        @success = false
+      end
 
-    # @raise [NotImplementedError]
-    def run
-      raise NotImplementedError
-    end
+      # @raise [NotImplementedError]
+      def run
+        raise NotImplementedError
+      end
 
-    private
+      private
 
-    attr_reader :settings
+      attr_reader :settings
 
-    # @return [String]
-    def step_name
-      self.class.name.demodulize.underscore
-    end
+      # @return [String]
+      def step_name
+        self.class.name.demodulize.underscore
+      end
 
-    # @return [Hash]
-    def step_settings
-      settings.steps[step_name.to_sym]
+      # @return [Hash]
+      def step_settings
+        settings.steps[step_name.to_sym]
+      end
     end
   end
 end
