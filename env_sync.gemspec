@@ -11,7 +11,7 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
                       as well as for syncing AWS S3 buckets if necessary.'
   spec.homepage = 'https://github.com/infinum/env_sync'
   spec.license = 'MIT'
-  spec.required_ruby_version = '>= 3.1.0'
+  spec.required_ruby_version = '>= 3.0.1'
 
   # TODO: spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
