@@ -1,7 +1,6 @@
 module EnvSync
   module Steps
     class ExecuteCustomCommand < BaseStep
-      require 'pry'
       # @return [String]
       def run
         return unless custom_command

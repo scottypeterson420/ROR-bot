@@ -17,7 +17,7 @@ module EnvSync
       end
 
       def remote_db_dump_file_path
-        settings.remote_db_dump_file_path
+        step_settings[:remote_db_dump_file_path]
       end
     end
   end

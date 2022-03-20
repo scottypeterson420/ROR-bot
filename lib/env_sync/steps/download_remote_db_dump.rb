@@ -36,11 +36,11 @@ module EnvSync
       end
 
       def source_file_path
-        step_settings.dig(:remote_db_dump_download, :source_file_path)
+        step_settings.dig(:download_remote_db_dump, :source_file_path)
       end
 
       def destination_file_path
-        step_settings.dig(:remote_db_dump_download, :destination_file_path)
+        step_settings.dig(:download_remote_db_dump, :destination_file_path)
       end
     end
   end

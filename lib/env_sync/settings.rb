@@ -16,19 +16,5 @@ module EnvSync
     def steps
       loaded_settings[:steps]
     end
-
-    # @param [Symbol] step_key
-    # @return [FalseClass, TrueClass]
-    def run_step?(step_key)
-      steps.key?(step_key)
-    end
-
-    # @return [String]
-    def remote_db_dump_file_path
-      remote_db_dump_file_path = steps.dig(:import_remote_db_to_local_db, :remote_db_dump_file_path)
-      return remote_db_dump_file_path if remote_db_dump_file_path
-
-      steps.dig(:download_remote_db_dump, :destination_file_path)
-    end
   end
 end

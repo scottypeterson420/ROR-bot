@@ -14,5 +14,6 @@ steps:
     remote_db_dump_file_path: './tmp/staging.sql'
   run_migrations_on_local_db:
   delete_remote_db_dump:
+    remote_db_dump_file_path: './tmp/staging.sql'
   execute_custom_command:
     command: 'some command'
