@@ -6,6 +6,7 @@ module EnvSync
       @loaded_settings = {}
     end
 
+    # @param [String] settings_file_path
     # @return [Hash]
     def load_settings_file(settings_file_path)
       @loaded_settings = YAML.safe_load(ERB.new(File.read(settings_file_path)).result).deep_symbolize_keys
@@ -16,7 +17,7 @@ module EnvSync
       loaded_settings[:steps]
     end
 
-    # @param [Object] step_key
+    # @param [Symbol] step_key
     # @return [FalseClass, TrueClass]
     def run_step?(step_key)
       steps.key?(step_key)

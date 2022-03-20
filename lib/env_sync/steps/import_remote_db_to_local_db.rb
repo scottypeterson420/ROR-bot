@@ -1,8 +1,8 @@
 module EnvSync
   module Steps
     class ImportRemoteDbToLocalDb < BaseStep
+      # @return [String]
       def run
-        return unless settings.run_step?(step_name.to_sym)
         return @message = 'Missing remote DB dump file' unless source_file_valid?
 
         @success = EnvSync::Command.new(command).execute
@@ -17,7 +17,7 @@ module EnvSync
       end
 
       def db_conn_config
-        ActiveRecord::Base.connection_db_config
+        ActiveRecord::Base.connection_db_config.configuration_hash
       end
 
       def source_file_path

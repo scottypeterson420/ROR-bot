@@ -1,8 +1,9 @@
 module EnvSync
   module Steps
     class ExecuteCustomCommand < BaseStep
+      require 'pry'
+      # @return [String]
       def run
-        return unless settings.run_step?(step_name.to_sym)
         return unless custom_command
 
         @success = EnvSync::Command.new(custom_command).execute
@@ -12,6 +13,8 @@ module EnvSync
       private
 
       def custom_command
+        return unless step_settings
+
         step_settings[:command]
       end
     end

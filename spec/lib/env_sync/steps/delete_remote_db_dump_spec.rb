@@ -8,15 +8,7 @@ RSpec.describe EnvSync::Steps::DeleteRemoteDbDump do
     settings.load_settings_file('spec/support/settings_with_all_steps.yml')
   end
 
-  it 'does not delete the file if the step should not be run' do
-    settings.steps.delete(:delete_remote_db_dump)
-
-    step.run
-
-    expect(File).not_to have_received(:delete)
-  end
-
-  context 'when the step should be run and the file is valid' do
+  context 'when the file is valid' do
     before do
       allow(File).to receive(:exist?).and_return(true)
     end
@@ -40,7 +32,7 @@ RSpec.describe EnvSync::Steps::DeleteRemoteDbDump do
     end
   end
 
-  context 'when the step should be run and the file is not valid' do
+  context 'when the file is not valid' do
     it 'does not delete the file' do
       step.run
 

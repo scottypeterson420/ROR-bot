@@ -1,8 +1,8 @@
 module EnvSync
   module Steps
     class DeleteRemoteDbDump < BaseStep
+      # @return [String]
       def run
-        return unless settings.run_step?(step_name.to_sym)
         return @message = 'Missing remote DB dump file' unless remote_db_dump_file_valid?
 
         File.delete(remote_db_dump_file_path)

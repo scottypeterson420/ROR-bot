@@ -7,15 +7,6 @@ RSpec.describe EnvSync::Steps::DownloadRemoteDbDump do
     settings.load_settings_file('spec/support/settings_with_all_steps.yml')
   end
 
-  it 'does not execute the command if the step should not be run' do
-    settings.steps.delete(:download_remote_db_dump)
-    command = successful_command_stub
-
-    step.run
-
-    expect(command).not_to have_received(:execute)
-  end
-
   context 'when the S3 credentials are missing' do
     before { settings.loaded_settings[:credentials].delete(:s3) }
 

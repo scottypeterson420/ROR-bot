@@ -19,12 +19,10 @@ module EnvSync
 
       attr_reader :settings
 
-      # @return [String]
       def step_name
         self.class.name.demodulize.underscore
       end
 
-      # @return [Hash]
       def step_settings
         settings.steps[step_name.to_sym]
       end

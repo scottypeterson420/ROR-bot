@@ -7,16 +7,7 @@ RSpec.describe EnvSync::Steps::ImportRemoteDbToLocalDb do
     settings.load_settings_file('spec/support/settings_with_all_steps.yml')
   end
 
-  it 'does not execute the command if the step should not be run' do
-    settings.steps.delete(:import_remote_db_to_local_db)
-    command = successful_command_stub
-
-    step.run
-
-    expect(command).not_to have_received(:execute)
-  end
-
-  context 'when the step should be run and the source file is valid' do
+  context 'when the source file is valid' do
     before do
       db_conn_config_stub
       allow(File).to receive(:exist?).and_return(true)
@@ -67,7 +58,7 @@ RSpec.describe EnvSync::Steps::ImportRemoteDbToLocalDb do
     end
   end
 
-  context 'when the step should be run and the source file is not valid' do
+  context 'when the source file is not valid' do
     before do
       db_conn_config_stub
       allow(File).to receive(:exist?).and_return(false)

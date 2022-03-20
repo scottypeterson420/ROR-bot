@@ -32,7 +32,9 @@ module Support
         port: '5432',
         database: 'db_name'
       }
-      allow(ActiveRecord::Base).to receive(:connection_db_config).and_return(db_conn_data)
+      ar_hash_config = instance_double('ActiveRecord::DatabaseConfigurations::HashConfig')
+      allow(ActiveRecord::Base).to receive(:connection_db_config).and_return(ar_hash_config)
+      allow(ar_hash_config).to receive(:configuration_hash).and_return(db_conn_data)
     end
 
     def schema_load_task_stub

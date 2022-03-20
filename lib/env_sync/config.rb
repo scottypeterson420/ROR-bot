@@ -9,7 +9,6 @@ module EnvSync
 
     private
 
-    # @return [Logger]
     def default_logger
       Logger.new($stdout).tap do |log|
         log.progname = self.class.name.split('::').first
