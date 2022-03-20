@@ -32,10 +32,9 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
 
   # Uncomment to register a new dependency of your gem
   spec.add_dependency 'aws-sdk-s3'
+  spec.add_dependency 'rails', '6.1.4.7'
 
-  spec.add_development_dependency 'activerecord'
   spec.add_development_dependency 'pry'
-  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'rubocop-infinum'
 
