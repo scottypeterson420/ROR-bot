@@ -12,7 +12,7 @@ RSpec.describe EnvSync::Steps::ResetLocalDbSchema do
 
     step.run
 
-    expect(task).to have_received(:invoke).twice
+    expect(task).to have_received(:invoke).once
   end
 
   it 'sets the message' do
