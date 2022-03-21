@@ -1,10 +1,10 @@
 RSpec.describe EnvSync::Steps::RunMigrationsOnLocalDb do
-  subject(:step) { described_class.new(settings) }
+  subject(:step) { described_class.new(step_definitions) }
 
-  let(:settings) { EnvSync::Settings.new }
+  let(:step_definitions) { EnvSync::StepDefinitions.new }
 
   before do
-    settings.load_settings_file('spec/support/settings_with_all_steps.yml')
+    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
   end
 
   it 'invokes the rake task to run migrations on the local DB' do

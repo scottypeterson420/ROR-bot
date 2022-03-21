@@ -1,12 +1,14 @@
 RSpec.describe EnvSync::Steps::DownloadRemoteDbDump do
-  subject(:step) { described_class.new(step_settings) }
+  subject(:step) { described_class.new(step_definition) }
 
-  let(:settings) { EnvSync::Settings.new }
-  let(:loaded_settings) { settings.load_settings_file('spec/support/settings_with_all_steps.yml') }
-  let(:step_settings) { loaded_settings.dig(:steps, :download_remote_db_dump) }
+  let(:step_definitions) { EnvSync::StepDefinitions.new }
+  let(:loaded_step_definitions) do
+    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+  end
+  let(:step_definition) { loaded_step_definitions.dig(:steps, :download_remote_db_dump) }
 
   context 'when the S3 credentials are missing' do
-    before { loaded_settings[:steps][:download_remote_db_dump].delete(:s3_credentials) }
+    before { loaded_step_definitions[:steps][:download_remote_db_dump].delete(:s3_credentials) }
 
     it 'does not execute the command' do
       command = successful_command_stub

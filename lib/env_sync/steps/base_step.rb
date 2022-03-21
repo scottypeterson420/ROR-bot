@@ -1,11 +1,15 @@
 module EnvSync
   module Steps
     class BaseStep
+      # @param [String]
       attr_reader :message
+
+      # @return [FalseClass, TrueClass]
       attr_reader :success
 
-      def initialize(step_settings)
-        @step_settings = step_settings
+      # @param [Hash] step_definition
+      def initialize(step_definition)
+        @step_definition = step_definition
         @message = nil
         @success = false
       end
@@ -17,7 +21,7 @@ module EnvSync
 
       private
 
-      attr_reader :step_settings
+      attr_reader :step_definition
 
       def step_name
         self.class.name.demodulize.underscore

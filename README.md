@@ -37,18 +37,18 @@ Add `config/initializers/env_sync.rb`
 ```ruby
 EnvSync.setup do |config|
   config.logger = Rails.logger
-  config.settings_file_path = Rails.root.join('config/env_sync/stag_to_dev.yml')
+  config.step_definitions_file_path = Rails.root.join('config/env_sync/stag_to_dev.yml')
 end
 ```
 
 | Option               |                   Default value                    | Description                       |
 |----------------------|:--------------------------------------------------:|-----------------------------------|
 | `logger`             |           Ruby's built-in Logger class             | Logging utility                   |
-| `settings_file_path` | n/a<br/>It is mandatory to provide a settings file | Entry point for the env sync task |
+| `step_definitions_file_path` | n/a<br/>It is mandatory to provide a step_definitions file | Entry point for the env sync task |
 
-### Settings file
+### StepDefinitions file
 
-An example of a settings file implementation:
+An example of a step_definitions file implementation:
 
 ```yml
 credentials:
@@ -93,7 +93,7 @@ To use the gem, simply run:
 
     $ bundle exec rake synchronize
 
-Depending on which steps you specified should be run in the settings file, this will invoke all the necessary rake tasks.
+Depending on which steps you specified should be run in the step_definitions file, this will invoke all the necessary rake tasks.
 
 If you prefer, you can run the individual rake tasks separately:
 

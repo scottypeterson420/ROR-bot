@@ -12,7 +12,7 @@ module EnvSync
       private
 
       def s3_credentials
-        step_settings[:s3_credentials]
+        step_definition[:s3_credentials]
       end
 
       def source_object
@@ -36,11 +36,11 @@ module EnvSync
       end
 
       def source_file_path
-        step_settings[:source_file_path]
+        step_definition[:source_file_path]
       end
 
       def destination_file_path
-        step_settings[:destination_file_path]
+        step_definition[:destination_file_path]
       end
     end
   end

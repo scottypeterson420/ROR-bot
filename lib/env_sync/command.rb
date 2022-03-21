@@ -1,5 +1,6 @@
 module EnvSync
   class Command
+    # @param [String] command_string
     def initialize(command_string)
       @command_string = command_string
     end

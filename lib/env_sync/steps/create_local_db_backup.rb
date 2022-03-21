@@ -19,7 +19,7 @@ module EnvSync
       end
 
       def destination_file_path
-        step_settings[:destination_file_path]
+        step_definition[:destination_file_path]
       end
     end
   end

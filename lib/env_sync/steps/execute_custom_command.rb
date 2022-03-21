@@ -12,9 +12,9 @@ module EnvSync
       private
 
       def custom_command
-        return unless step_settings
+        return unless step_definition
 
-        step_settings[:command]
+        step_definition[:command]
       end
     end
   end

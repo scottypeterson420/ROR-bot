@@ -2,6 +2,7 @@ module EnvSync
   class Config
     # @return [Logger]
     attr_accessor :logger
+
     # @return [Array<String>]
     attr_accessor :permitted_environments
 

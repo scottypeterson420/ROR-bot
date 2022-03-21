@@ -11,7 +11,7 @@ require 'env_sync/version'
 require 'env_sync/command'
 require 'env_sync/config'
 require 'env_sync/railtie' if defined?(Rails::Railtie)
-require 'env_sync/settings'
+require 'env_sync/step_definitions'
 require 'env_sync/step_factory'
 require 'env_sync/steps/base_step'
 require 'env_sync/steps/create_local_db_backup'
@@ -33,8 +33,8 @@ module EnvSync
     @config ||= Config.new
   end
 
-  # @return [EnvSync::Settings]
-  def self.settings
-    @settings ||= Settings.new
+  # @return [EnvSync::StepDefinitions]
+  def self.step_definitions
+    @step_definitions ||= StepDefinitions.new
   end
 end
