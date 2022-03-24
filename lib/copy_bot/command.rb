@@ -8,7 +8,7 @@ module CopyBot
     # @return [FalseClass, TrueClass]
     def execute
       stdout, stderr, status = Open3.capture3(command_string)
-      return true if status.exitstatus&.zero?
+      return true if status.exitstatus&.zero? && stderr.blank?
 
       CopyBot.config.logger.debug { "#{stdout}, #{stderr}" }
       false

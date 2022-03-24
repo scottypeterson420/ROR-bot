@@ -37,12 +37,12 @@ module Support
       allow(ar_hash_config).to receive(:configuration_hash).and_return(db_conn_data)
     end
 
-    def schema_load_task_stub
-      task = instance_double('Rake::Task')
-      allow(Rake::Task).to receive(:[]).with('db:purge').and_return(task)
-      allow(Rake::Task).to receive(:[]).with('db:schema:load').and_return(task)
-      allow(task).to receive(:invoke)
-      task
+    def active_record_conn_stub(tables)
+      ar_conn = instance_double('ActiveRecord::ConnectionAdapters::PostgreSQLAdapter')
+      allow(ActiveRecord::Base).to receive(:connection).and_return(ar_conn)
+      allow(ar_conn).to receive(:tables).and_return(tables)
+      allow(ar_conn).to receive(:drop_table)
+      ar_conn
     end
 
     def migrate_task_stub

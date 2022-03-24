@@ -9,6 +9,6 @@ steps:
     destination_file_path: './tmp/downloaded_db_dump.sql'
   create_local_db_backup:
     destination_file_path: './tmp/development_backup.sql'
-  reset_local_db_schema:
+  drop_local_db_tables:
   import_remote_db_to_local_db:
   run_migrations_on_local_db:

@@ -19,7 +19,7 @@ require 'copy_bot/steps/delete_remote_db_dump'
 require 'copy_bot/steps/download_remote_db_dump'
 require 'copy_bot/steps/execute_custom_command'
 require 'copy_bot/steps/import_remote_db_to_local_db'
-require 'copy_bot/steps/reset_local_db_schema'
+require 'copy_bot/steps/drop_local_db_tables'
 require 'copy_bot/steps/run_migrations_on_local_db'
 
 module CopyBot

@@ -1,22 +1,23 @@
-RSpec.describe CopyBot::Steps::ResetLocalDbSchema do
+RSpec.describe CopyBot::Steps::DropLocalDbTables do
   subject(:step) { described_class.new(step_definitions) }
 
   let(:step_definitions) { CopyBot::StepDefinitions.new }
 
   before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+    CopyBot.config.logger = nil
   end
 
-  it 'invokes the rake tasks to purge and load the local DB schema' do
-    task = schema_load_task_stub
+  it 'drops tables' do
+    ar_conn = active_record_conn_stub(['table1', 'table2'])
 
     step.run
 
-    expect(task).to have_received(:invoke).once
+    expect(ar_conn).to have_received(:drop_table).twice
   end
 
   it 'sets the message' do
-    _task = schema_load_task_stub
+    _ar_conn = active_record_conn_stub(['table1', 'table2'])
 
     step.run
 
@@ -24,7 +25,7 @@ RSpec.describe CopyBot::Steps::ResetLocalDbSchema do
   end
 
   it 'sets the success variable' do
-    _task = schema_load_task_stub
+    _ar_conn = active_record_conn_stub(['table1', 'table2'])
 
     step.run
 

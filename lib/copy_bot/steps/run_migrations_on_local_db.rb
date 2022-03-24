@@ -4,8 +4,8 @@ module CopyBot
       # @return [String]
       def run
         Rake::Task['db:migrate'].invoke
-        @message = 'Ran migrations on local DB.'
         @success = true
+        @message = 'Ran migrations on local DB.'
       end
     end
   end

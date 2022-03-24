@@ -15,7 +15,7 @@ RSpec.describe CopyBot::StepDefinitions do
       steps = [
         :download_remote_db_dump,
         :create_local_db_backup,
-        :reset_local_db_schema,
+        :drop_local_db_tables,
         :import_remote_db_to_local_db,
         :run_migrations_on_local_db,
         :delete_remote_db_dump,
