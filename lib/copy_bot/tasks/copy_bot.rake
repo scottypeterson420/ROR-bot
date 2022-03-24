@@ -1,5 +1,5 @@
 desc 'Starting point for data sync'
-task data_sync: :environment do
+task copy_bot: :environment do
   abort 'Forbidden to run in this environment' unless CopyBot.config.permitted_environments.include?(Rails.env)
 
   step_definitions_file_path = Rails.root.join(ENV['SETTINGS_FILE_PATH'])
