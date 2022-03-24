@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/setup'
-require 'env_sync'
+require 'copy_bot'
 
 require 'pry'
 Pry.start

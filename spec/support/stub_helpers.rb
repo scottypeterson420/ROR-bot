@@ -12,15 +12,15 @@ module Support
     end
 
     def successful_command_stub
-      command = instance_double('EnvSync::Command')
-      allow(EnvSync::Command).to receive(:new).and_return(command)
+      command = instance_double('CopyBot::Command')
+      allow(CopyBot::Command).to receive(:new).and_return(command)
       allow(command).to receive(:execute).and_return(true)
       command
     end
 
     def failed_successful_command_stub
-      command = instance_double('EnvSync::Command')
-      allow(EnvSync::Command).to receive(:new).and_return(command)
+      command = instance_double('CopyBot::Command')
+      allow(CopyBot::Command).to receive(:new).and_return(command)
       allow(command).to receive(:execute).and_return(false)
       command
     end

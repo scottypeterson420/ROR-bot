@@ -1,15 +1,15 @@
-require_relative 'lib/env_sync/version'
+require_relative 'lib/copy_bot/version'
 
 Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
-  spec.name = 'env_sync'
-  spec.version = EnvSync::VERSION
+  spec.name = 'copy_bot'
+  spec.version = CopyBot::VERSION
   spec.authors = ['Rails Team']
   spec.email = ['team.rails@infinum.com']
 
   spec.summary = 'Tool syncing the database with another environment.'
   spec.description = 'Provides a rake task for importing a database dump into a database on a particular environment,
                       as well as for syncing AWS S3 buckets if necessary.'
-  spec.homepage = 'https://github.com/infinum/env_sync'
+  spec.homepage = 'https://github.com/infinum/copy_bot'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.0.1'
 

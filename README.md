@@ -1,4 +1,4 @@
-# EnvSync
+# CopyBot
 
 A gem that provides a rake task for syncing two environments: for importing a database dump into the local database,
 as well as for copying files from one AWS S3 bucket to another.
@@ -20,7 +20,7 @@ made available either on an AWS S3 bucket or on a local path.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'env_sync'
+gem 'copy_bot'
 ```
 
 And then execute:
@@ -35,9 +35,9 @@ Or install it yourself as:
 
 Add `config/initializers/env_sync.rb`
 ```ruby
-EnvSync.setup do |config|
+CopyBot.setup do |config|
   config.logger = Rails.logger
-  config.step_definitions_file_path = Rails.root.join('config/env_sync/stag_to_dev.yml')
+  config.step_definitions_file_path = Rails.root.join('config/copy_bot/stag_to_dev.yml')
 end
 ```
 
@@ -122,4 +122,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the EnvSync project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/env_sync/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the CopyBot project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/env_sync/blob/master/CODE_OF_CONDUCT.md).

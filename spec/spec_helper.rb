@@ -1,4 +1,4 @@
-require 'env_sync'
+require 'copy_bot'
 require 'support/stub_helpers'
 
 RSpec.configure do |config|
