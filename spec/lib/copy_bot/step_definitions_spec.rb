@@ -3,7 +3,7 @@ RSpec.describe CopyBot::StepDefinitions do
 
   describe '#loaded_step_definitions' do
     it 'returns a hash with the contents of the step definitions file' do
-      step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+      step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
 
       expect(step_definitions.loaded_step_definitions).to be_a(Hash)
       expect(step_definitions.loaded_step_definitions.keys).to match_array([:steps])
@@ -22,7 +22,7 @@ RSpec.describe CopyBot::StepDefinitions do
         :execute_custom_command
       ]
 
-      step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+      step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
 
       expect(step_definitions.steps).to be_a(Hash)
       expect(step_definitions.steps.keys).to match_array(steps)

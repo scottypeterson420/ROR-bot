@@ -4,7 +4,7 @@ RSpec.describe CopyBot::Steps::RunMigrationsOnLocalDb do
   let(:step_definitions) { CopyBot.step_definitions }
 
   before do
-    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+    step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
   end
 
   it 'invokes the rake task to run migrations on the local DB' do

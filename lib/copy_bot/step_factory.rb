@@ -14,7 +14,7 @@ module CopyBot
         ::CopyBot::Steps::DownloadRemoteDbDump
       when :create_local_db_backup
         ::CopyBot::Steps::CreateLocalDbBackup
-      when :reset_local_db_schema
+      when :drop_local_db_tables
         ::CopyBot::Steps::DropLocalDbTables
       when :import_remote_db_to_local_db
         ::CopyBot::Steps::ImportRemoteDbToLocalDb

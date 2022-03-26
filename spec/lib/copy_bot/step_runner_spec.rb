@@ -1,5 +1,4 @@
 RSpec.describe CopyBot::StepRunner do
-  require 'pry'
   describe '#call' do
     subject(:step_runner) { described_class.new('create_local_db_backup') }
 
@@ -7,7 +6,7 @@ RSpec.describe CopyBot::StepRunner do
     let(:logger) { CopyBot.config.logger }
 
     before do
-      step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+      step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
       allow(logger).to receive(:info)
       allow(logger).to receive(:debug)
     end

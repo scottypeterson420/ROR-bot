@@ -4,7 +4,7 @@ RSpec.describe CopyBot::Steps::DeleteRemoteDbDump do
   let(:step_definitions) { CopyBot.step_definitions }
 
   before do
-    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
+    step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
     allow(File).to receive(:delete)
   end
 
