@@ -1,14 +1,14 @@
 RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
-  subject(:step) { described_class.new(step_definition) }
+  subject(:step) { described_class.new(step_definitions.steps[:execute_custom_command]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
-  let(:loaded_step_definitions) do
+  let(:step_definitions) { CopyBot.step_definitions }
+
+  before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
   end
-  let(:step_definition) { loaded_step_definitions.dig(:steps, :execute_custom_command) }
 
   context 'when the custom command is not provided' do
-    before { loaded_step_definitions[:steps][:execute_custom_command].delete(:command) }
+    before { step_definitions.steps[:execute_custom_command].delete(:command) }
 
     it 'does not execute the command' do
       command = successful_command_stub

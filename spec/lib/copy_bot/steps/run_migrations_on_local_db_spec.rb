@@ -1,7 +1,7 @@
 RSpec.describe CopyBot::Steps::RunMigrationsOnLocalDb do
-  subject(:step) { described_class.new(step_definitions) }
+  subject(:step) { described_class.new(step_definitions.steps[:run_migrations_on_local_db]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
+  let(:step_definitions) { CopyBot.step_definitions }
 
   before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')

@@ -51,5 +51,13 @@ module Support
       allow(task).to receive(:invoke)
       task
     end
+
+    def create_local_db_backup_step_stub(success)
+      step = instance_double('CopyBot::Steps::CreateLocalDbBackup')
+      allow(CopyBot::Steps::CreateLocalDbBackup).to receive(:new).and_return(step)
+      allow(step).to receive(:run)
+      allow(step).to receive(:message)
+      allow(step).to receive(:success).and_return(success)
+    end
   end
 end

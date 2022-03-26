@@ -1,14 +1,14 @@
 RSpec.describe CopyBot::Steps::DownloadRemoteDbDump do
-  subject(:step) { described_class.new(step_definition) }
+  subject(:step) { described_class.new(step_definitions.steps[:download_remote_db_dump]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
-  let(:loaded_step_definitions) do
+  let(:step_definitions) { CopyBot.step_definitions }
+
+  before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
   end
-  let(:step_definition) { loaded_step_definitions.dig(:steps, :download_remote_db_dump) }
 
   context 'when the S3 credentials are missing' do
-    before { loaded_step_definitions[:steps][:download_remote_db_dump].delete(:s3_credentials) }
+    before { step_definitions.steps[:download_remote_db_dump].delete(:s3_credentials) }
 
     it 'does not execute the command' do
       command = successful_command_stub

@@ -1,13 +1,10 @@
 RSpec.describe CopyBot::Steps::DeleteRemoteDbDump do
-  subject(:step) { described_class.new(step_definition) }
+  subject(:step) { described_class.new(step_definitions.steps[:delete_remote_db_dump]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
-  let(:loaded_step_definitions) do
-    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
-  end
-  let(:step_definition) { loaded_step_definitions.dig(:steps, :delete_remote_db_dump) }
+  let(:step_definitions) { CopyBot.step_definitions }
 
   before do
+    step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
     allow(File).to receive(:delete)
   end
 

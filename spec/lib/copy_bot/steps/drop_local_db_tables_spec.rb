@@ -1,11 +1,10 @@
 RSpec.describe CopyBot::Steps::DropLocalDbTables do
-  subject(:step) { described_class.new(step_definitions) }
+  subject(:step) { described_class.new(step_definitions.steps[:drop_local_db_tables]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
+  let(:step_definitions) { CopyBot.step_definitions }
 
   before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
-    CopyBot.config.logger = nil
   end
 
   it 'drops tables' do

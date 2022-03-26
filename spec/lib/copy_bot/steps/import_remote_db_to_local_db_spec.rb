@@ -1,11 +1,11 @@
 RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
-  subject(:step) { described_class.new(step_definition) }
+  subject(:step) { described_class.new(step_definitions.steps[:import_remote_db_to_local_db]) }
 
-  let(:step_definitions) { CopyBot::StepDefinitions.new }
-  let(:loaded_step_definitions) do
+  let(:step_definitions) { CopyBot.step_definitions }
+
+  before do
     step_definitions.load_step_definitions_file('spec/support/step_definitions_with_all_steps.yml')
   end
-  let(:step_definition) { loaded_step_definitions.dig(:steps, :import_remote_db_to_local_db) }
 
   context 'when the source file is valid' do
     before do
