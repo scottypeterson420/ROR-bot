@@ -14,7 +14,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
     end
 
     it 'executes the command' do
-      command = successful_command_stub
+      command = command_stub(success: true)
 
       step.run
 
@@ -23,7 +23,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
 
     context 'when the command is successfully executed' do
       it 'sets the message' do
-        successful_command_stub
+        command_stub(success: true)
 
         step.run
 
@@ -31,7 +31,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
       end
 
       it 'updates the success variable' do
-        successful_command_stub
+        command_stub(success: true)
 
         step.run
 
@@ -41,7 +41,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
 
     context 'when the command execution fails' do
       it 'sets the message' do
-        failed_successful_command_stub
+        command_stub(success: false)
 
         step.run
 
@@ -49,7 +49,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
       end
 
       it 'sets the success variable' do
-        failed_successful_command_stub
+        command_stub(success: false)
 
         step.run
 
@@ -77,7 +77,7 @@ RSpec.describe CopyBot::Steps::ImportRemoteDbToLocalDb do
     end
 
     it 'does not execute the command' do
-      command = failed_successful_command_stub
+      command = command_stub(success: false)
 
       step.run
 

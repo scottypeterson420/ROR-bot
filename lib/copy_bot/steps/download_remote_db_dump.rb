@@ -6,7 +6,7 @@ module CopyBot
         return @message = 'Missing S3 credentials in config' unless s3_credentials
 
         @success = source_object.download_file(destination_file_path)
-        @message = successful_download_message
+        @message = @success ? successful_download_message : 'Remote DB dump download failed.'
       end
 
       private

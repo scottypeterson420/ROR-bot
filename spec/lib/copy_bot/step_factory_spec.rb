@@ -10,7 +10,7 @@ RSpec.describe CopyBot::StepFactory do
         .to eq(::CopyBot::Steps::CreateLocalDbBackup)
     end
 
-    it 'returns ::CopyBot::Steps::ResetLocalDbSchema if step name is reset_local_db_schema' do
+    it 'returns ::CopyBot::Steps::ResetLocalDbSchema if step name is drop_loadl_db_tables' do
       expect(described_class.new(:drop_local_db_tables).build).to eq(::CopyBot::Steps::DropLocalDbTables)
     end
 

@@ -11,19 +11,19 @@ module Support
       s3_object
     end
 
-    def successful_command_stub
+    def command_stub(success:)
       command = instance_double('CopyBot::Command')
       allow(CopyBot::Command).to receive(:new).and_return(command)
-      allow(command).to receive(:execute).and_return(true)
+      allow(command).to receive(:execute).and_return(success)
       command
     end
 
-    def failed_successful_command_stub
-      command = instance_double('CopyBot::Command')
-      allow(CopyBot::Command).to receive(:new).and_return(command)
-      allow(command).to receive(:execute).and_return(false)
-      command
-    end
+    # def command_stub(success: false)
+    #   command = instance_double('CopyBot::Command')
+    #   allow(CopyBot::Command).to receive(:new).and_return(command)
+    #   allow(command).to receive(:execute).and_return(false)
+    #   command
+    # end
 
     def db_conn_config_stub
       db_conn_data = {

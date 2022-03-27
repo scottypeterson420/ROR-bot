@@ -24,7 +24,7 @@ module CopyBot
     end
 
     def step
-      step_class.new(step_definition)
+      @step ||= step_class.new(step_definition)
     end
 
     def step_definition

@@ -11,7 +11,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
     before { step_definitions.steps[:execute_custom_command].delete(:command) }
 
     it 'does not execute the command' do
-      command = successful_command_stub
+      command = command_stub(success: true)
 
       step.run
 
@@ -26,7 +26,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
   end
 
   it 'executes the command' do
-    command = successful_command_stub
+    command = command_stub(success: true)
 
     step.run
 
@@ -35,7 +35,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
 
   context 'when the command is successfully executed' do
     it 'sets the message' do
-      successful_command_stub
+      command_stub(success: true)
 
       step.run
 
@@ -43,7 +43,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
     end
 
     it 'sets the success variable' do
-      successful_command_stub
+      command_stub(success: true)
 
       step.run
 
@@ -53,7 +53,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
 
   context 'when the command execution fails' do
     it 'sets the message' do
-      failed_successful_command_stub
+      command_stub(success: false)
 
       step.run
 
@@ -61,7 +61,7 @@ RSpec.describe CopyBot::Steps::ExecuteCustomCommand do
     end
 
     it 'does not update the success variable' do
-      failed_successful_command_stub
+      command_stub(success: false)
 
       step.run
 
