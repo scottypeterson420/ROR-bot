@@ -6,7 +6,7 @@ task copy_bot: :environment do
     exit logger.debug('Forbidden to run in this environment')
   end
 
-  step_definitions_file_path = Rails.root.join(ENV['SETTINGS_FILE_PATH'])
+  step_definitions_file_path = Rails.root.join(ENV['STEP_DEFINITIONS_FILE_PATH'])
   unless step_definitions_file_path && File.exist?(step_definitions_file_path)
     exit logger.debug('Invalid or missing step_definitions file path')
   end
