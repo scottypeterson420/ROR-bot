@@ -10,8 +10,8 @@ module CopyBot
       private
 
       def command
-        "pg_dump -U #{db_conn_config[:username]} -h #{db_conn_config[:host]} -p #{db_conn_config[:port]} " \
-          "#{db_conn_config[:database]} > #{destination_file_path}"
+        "PGPASSWORD=#{db_conn_config[:password]} pg_dump -U #{db_conn_config[:username]} -h #{db_conn_config[:host]}" \
+          " -p #{db_conn_config[:port]} #{db_conn_config[:database]} > #{destination_file_path}"
       end
 
       def db_conn_config

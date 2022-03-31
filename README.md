@@ -16,6 +16,10 @@ made available either on an AWS S3 bucket or on a local path.
 * `aws-sdk-ruby`
 * `rails`
 
+## Supported databases
+
+* PostgreSQL
+
 ## Installation
 
 Add this line to your application's Gemfile:
