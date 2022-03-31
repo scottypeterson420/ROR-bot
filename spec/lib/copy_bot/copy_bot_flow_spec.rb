@@ -1,7 +1,7 @@
 RSpec.describe CopyBot do
   let(:step_definitions) { described_class.step_definitions }
   let!(:s3_object) { s3_object_stub }
-  let!(:command) { command_stub(success: true) }
+  let!(:command) { shell_command_stub(success: true) }
   let!(:ar_conn) { active_record_conn_stub(['table1', 'table2']) }
   let!(:migrate_task) { migrate_task_stub }
 

@@ -11,7 +11,7 @@ RSpec.describe CopyBot::Steps::DownloadRemoteDbDump do
     before { step_definitions.steps[:download_remote_db_dump].delete(:s3_credentials) }
 
     it 'does not execute the command' do
-      command = command_stub(success: true)
+      command = shell_command_stub(success: true)
 
       step.run
 

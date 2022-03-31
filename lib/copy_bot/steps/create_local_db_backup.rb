@@ -3,7 +3,7 @@ module CopyBot
     class CreateLocalDbBackup < BaseStep
       # @return [String]
       def run
-        @success = CopyBot::Command.new(command).execute
+        @success = CopyBot::ShellCommand.new(command).execute
         @message = @success ? 'Created backup of local DB.' : 'Local DB backup creation failed.'
       end
 

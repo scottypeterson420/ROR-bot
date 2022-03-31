@@ -9,7 +9,7 @@ RSpec.describe CopyBot::Steps::CreateLocalDbBackup do
   end
 
   it 'executes the command' do
-    command = command_stub(success: true)
+    command = shell_command_stub(success: true)
 
     step.run
 
@@ -18,7 +18,7 @@ RSpec.describe CopyBot::Steps::CreateLocalDbBackup do
 
   context 'when the command is successfully executed' do
     it 'sets the message' do
-      command_stub(success: true)
+      shell_command_stub(success: true)
 
       step.run
 
@@ -26,7 +26,7 @@ RSpec.describe CopyBot::Steps::CreateLocalDbBackup do
     end
 
     it 'sets the success variable' do
-      command_stub(success: true)
+      shell_command_stub(success: true)
 
       step.run
 
@@ -36,7 +36,7 @@ RSpec.describe CopyBot::Steps::CreateLocalDbBackup do
 
   context 'when the command execution fails' do
     it 'sets the message' do
-      command_stub(success: false)
+      shell_command_stub(success: false)
 
       step.run
 
@@ -44,7 +44,7 @@ RSpec.describe CopyBot::Steps::CreateLocalDbBackup do
     end
 
     it 'does not update the success variable' do
-      command_stub(success: false)
+      shell_command_stub(success: false)
 
       step.run
 

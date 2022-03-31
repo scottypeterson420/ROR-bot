@@ -8,7 +8,7 @@ require 'rails'
 require 'yaml'
 
 require 'copy_bot/version'
-require 'copy_bot/command'
+require 'copy_bot/shell_command'
 require 'copy_bot/config'
 require 'copy_bot/railtie' if defined?(Rails::Railtie)
 require 'copy_bot/step_definitions'

@@ -5,7 +5,7 @@ module CopyBot
       def run
         return @message = 'Missing remote DB dump file' unless source_file_valid?
 
-        @success = CopyBot::Command.new(command).execute
+        @success = CopyBot::ShellCommand.new(command).execute
         @message = @success ? 'Imported remote DB to local DB.' : 'Remote DB to local DB import failed.'
       end
 

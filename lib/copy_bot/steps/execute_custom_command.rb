@@ -5,7 +5,7 @@ module CopyBot
       def run
         return @message = 'Custom command missing' unless custom_command
 
-        @success = CopyBot::Command.new(custom_command).execute
+        @success = CopyBot::ShellCommand.new(custom_command).execute
         @message = @success ? 'Custom command executed.' : 'Custom command failed.'
       end
 

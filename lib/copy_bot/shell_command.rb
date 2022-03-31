@@ -1,13 +1,13 @@
 module CopyBot
-  class Command
-    # @param [String] command_string
-    def initialize(command_string)
-      @command_string = command_string
+  class ShellCommand
+    # @param [String] command
+    def initialize(command)
+      @command = command
     end
 
     # @return [FalseClass, TrueClass]
     def execute
-      stdout, stderr, status = Open3.capture3(command_string)
+      stdout, stderr, status = Open3.capture3(command)
       return true if status.exitstatus&.zero?
 
       CopyBot.config.logger.debug { "#{stdout}, #{stderr}" }
@@ -16,6 +16,6 @@ module CopyBot
 
     private
 
-    attr_reader :command_string
+    attr_reader :command
   end
 end
