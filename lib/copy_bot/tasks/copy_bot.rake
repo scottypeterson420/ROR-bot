@@ -3,19 +3,24 @@ task copy_bot: :environment do
   logger = CopyBot.config.logger
 
   unless CopyBot.config.permitted_environments.include?(Rails.env)
-    exit logger.debug('Forbidden to run in this environment')
+    logger.debug('Forbidden to run in this environment')
+    abort
   end
 
   step_definitions_file_path = Rails.root.join(ENV['STEP_DEFINITIONS_FILE_PATH'])
   unless step_definitions_file_path && File.exist?(step_definitions_file_path)
-    exit logger.debug('Invalid or missing step_definitions file path')
+    logger.debug('Invalid or missing step_definitions file path')
+    abort
   end
 
   CopyBot.step_definitions.load_step_definitions_file(step_definitions_file_path)
-  exit logger.debug('Missing steps in config') unless CopyBot.step_definitions.steps
+  unless CopyBot.step_definitions.steps
+    logger.debug('Missing steps in config')
+    abort
+  end
 
   CopyBot.step_definitions.steps.each_key do |step_name|
     success = CopyBot::StepRunner.new(step_name).call
-    exit unless success
+    abort unless success
   end
 end

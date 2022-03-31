@@ -4,8 +4,7 @@ module CopyBot
       # @return [String]
       def run
         conn = ActiveRecord::Base.connection
-        tables = conn.tables
-        tables.each do |table|
+        conn.tables.each do |table|
           CopyBot.config.logger.info("Dropping #{table}")
           conn.drop_table(table, force: :cascade, if_exists: true)
         end

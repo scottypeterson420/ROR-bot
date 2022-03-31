@@ -9,23 +9,4 @@ RSpec.describe CopyBot::StepDefinitions do
       expect(step_definitions.loaded_step_definitions.keys).to match_array([:steps])
     end
   end
-
-  describe '#steps' do
-    it 'returns the steps with step definitions from the step_definitions file' do
-      steps = [
-        :download_remote_db_dump,
-        :create_local_db_backup,
-        :drop_local_db_tables,
-        :import_remote_db_to_local_db,
-        :run_migrations_on_local_db,
-        :delete_remote_db_dump,
-        :execute_custom_command
-      ]
-
-      step_definitions.load_step_definitions_file('spec/support/step_definitions.yml')
-
-      expect(step_definitions.steps).to be_a(Hash)
-      expect(step_definitions.steps.keys).to match_array(steps)
-    end
-  end
 end
