@@ -20,8 +20,8 @@ module CopyBot
       end
 
       def command
-        "psql -U #{db_conn_config[:username]} -h #{db_conn_config[:host]} -p #{db_conn_config[:port]} " \
-          "#{db_conn_config[:database]} < #{source_file_path}"
+        "PGPASSWORD=#{db_conn_config[:password]} psql -U #{db_conn_config[:username]} -h #{db_conn_config[:host]} " \
+          "-p #{db_conn_config[:port]} #{db_conn_config[:database]} < #{source_file_path}"
       end
 
       def db_conn_config
