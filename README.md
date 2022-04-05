@@ -50,10 +50,10 @@ CopyBot.setup do |config|
 end
 
 ```
-| Option                   |        Default value         | Description                                                                                            |
-|--------------------------|:----------------------------:|--------------------------------------------------------------------------------------------------------|
-| `logger`                 | Ruby's built-in Logger class | Logging utility that by default outputs to $stdout                                                     |
-| `permitted_environments` |      `['development']`       | Array with environments where the rake task is allowed<br/>to be run (since it contains destructive actions |
+| Option                   |        Default value         | Description                                                                                              |
+|--------------------------|:----------------------------:|----------------------------------------------------------------------------------------------------------|
+| `logger`                 | Ruby's built-in Logger class | Logging utility that by default outputs to $stdout                                                       |
+| `permitted_environments` |      `['development']`       | Array with environments where the rake task is allowed to be run (since it contains destructive actions) |
 
 ### Step definitions file
 
