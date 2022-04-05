@@ -6,13 +6,13 @@ Gem::Specification.new do |spec|
   spec.authors = ['Rails Team']
   spec.email = ['team.rails@infinum.com']
 
-  spec.summary = 'Tool for syncing the data sync between two environments.'
+  spec.summary = 'Tool for syncing data between two environments.'
   spec.description = 'Provides a rake task for importing a database dump into a database on a particular environment.'
   spec.homepage = 'https://github.com/infinum/copy_bot'
   spec.license = 'MIT'
   spec.required_ruby_version = Gem::Requirement.new('>= 3.0.1')
 
-  # TODO: spec.metadata['allowed_push_host'] = 'https://rubygems.org'
+  spec.metadata['allowed_push_host'] = 'https://rubygems.org'
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = spec.homepage
